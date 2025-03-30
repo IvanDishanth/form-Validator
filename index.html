@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>User Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+    <form id="registrationForm">
+        <h2>User Registration</h2>
+        <label for="username">Username</label>
+        <input class="in" type="text" id="username" placeholder="Enter username">
+        <div class="error" id="usernameError">Username must be 3-15 characters (letters and numbers only).</div>
+
+        <label for="email">Email</label>
+        <input class="in" type="email" id="email" placeholder="Enter email">
+        <div class="error" id="emailError">Please enter a valid email address.</div>
+
+        <label for="password">Password</label>
+        <input class="in" type="password" id="password" placeholder="Enter password">
+        <div class="error" id="passwordError">Password must be at least 8 characters, include 1 uppercase, 1 number, and 1 special character.</div>
+        <div class="strength-bar">
+            <div id="strengthIndicator"></div>
+        </div>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input class="in" type="password" id="confirmPassword" placeholder="Confirm password">
+        <div class="error" id="confirmPasswordError">Passwords do not match.</div>
+
+        <label>Show Password
+        <input type="checkbox" id="showPassword" style="margin-left: 10px;"></label>
+        
+
+        <button type="submit">Register</button>
+        <div class="success" id="successMessage">Registration successful!</div>
+    </form>
+    </div>
+    <script src="form.js"></script>
+</body>
+</html></form>
