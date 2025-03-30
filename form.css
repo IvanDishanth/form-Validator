@@ -2,7 +2,7 @@
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 10px;
     background-image: url("ChatGPT Image Mar 30, 2025, 01_35_24 PM.png");
     background-size: cover;
@@ -14,7 +14,13 @@ body {
     margin: 50px;
     justify-content: center;
     align-items: center;
+    background-image: url("749947.jpg");
 
+
+}
+
+.in::placeholder {
+    color: #8b0303;
 }
 form {
     max-width: 400px;
@@ -35,7 +41,7 @@ h2 {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #c02424;
     border-radius: 5px;
     transition: border-color 0.3s;
     background: rgba(219, 149, 176, 0.8);

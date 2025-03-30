@@ -14,7 +14,8 @@ regForm.addEventListener('submit', function (e) {
         successMessage.style.display = 'block';
         saveToLocal();
         alert('Form submitted successfully!');
-    } else {
+    } 
+    else {
         successMessage.style.display = 'none';
         scrollToFirstError();
     }
