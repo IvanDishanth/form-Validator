@@ -18,6 +18,7 @@ regForm.addEventListener('submit', function (e) {
     else {
         successMessage.style.display = 'none';
         scrollToFirstError();
+    
     }
 });
 
