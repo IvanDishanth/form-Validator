@@ -7,7 +7,7 @@ const confirmPasswordField = document.getElementById('confirmPassword');
 const showPasswordCheckbox = document.getElementById('showPassword');
 const successMessage = document.getElementById('successMessage');
 
-// Event Listeners
+// Form Submit Event
 regForm.addEventListener('submit', function (e) {
     e.preventDefault();
     if (validateForm()) {
@@ -15,13 +15,13 @@ regForm.addEventListener('submit', function (e) {
         saveToLocal();
         alert('Form submitted successfully!');
     } 
-    else {
+    else {   
         successMessage.style.display = 'none';
         scrollToFirstError();
-    
     }
 });
 
+// Password Input Event (for strength meter)
 passwordField.addEventListener('input', function () {
     const strength = calculateStrength(passwordField.value);
     const strengthIndicator = document.getElementById('strengthIndicator');
@@ -29,13 +29,14 @@ passwordField.addEventListener('input', function () {
     strengthIndicator.style.backgroundColor = strength.color;
 });
 
+// Toggle Password Show/Hide
 showPasswordCheckbox.addEventListener('change', function () {
     const type = showPasswordCheckbox.checked ? 'text' : 'password';
     passwordField.type = type;
     confirmPasswordField.type = type;
 });
 
-// Functions
+// Function to Validate All Fields
 function validateForm() {
     let isValid = true;
     isValid &= check(usernameField.value, 'usernameError', /^[a-zA-Z0-9]{3,15}$/, 'Username must be 3-15 characters (letters and numbers only).');
@@ -45,6 +46,7 @@ function validateForm() {
     return !!isValid;
 }
 
+// Function to Validate Individual Field
 function check(value, id, regex, message) {
     if (!regex.test(value)) {
         setError(id, message);
@@ -55,6 +57,7 @@ function check(value, id, regex, message) {
     }
 }
 
+// Function to Calculate Password Strength
 function calculateStrength(password) {
     let strength = 0;
     if (password.length >= 8) strength += 25;
@@ -67,6 +70,7 @@ function calculateStrength(password) {
     return { percent: strength, color: 'green' };
 }
 
+// Function to Set Error Message
 function setError(id, message) {
     const errorElement = document.getElementById(id);
     errorElement.textContent = message;
@@ -75,6 +79,7 @@ function setError(id, message) {
     inputElement.style.borderColor = 'red';
 }
 
+// Function to Clear Error Message
 function clearError(id) {
     const errorElement = document.getElementById(id);
     errorElement.style.display = 'none';
@@ -82,6 +87,7 @@ function clearError(id) {
     inputElement.style.borderColor = 'green';
 }
 
+// Smooth Scroll to First Invalid Field
 function scrollToFirstError() {
     const firstError = document.querySelector('.error[style*="display: block"]');
     if (firstError) {
@@ -90,6 +96,7 @@ function scrollToFirstError() {
     }
 }
 
+//   Save to LocalStorage
 function saveToLocal() {
     localStorage.setItem('username', usernameField.value);
     localStorage.setItem('email', emailField.value);
